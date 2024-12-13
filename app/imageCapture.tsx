@@ -11,9 +11,9 @@ export default function ImageCapture() {
           onPress={() => {
             router.back();
           }}
-          className="h-auto py-10 px-8 rounded-2xl"
+          className="h-auto py-5 px-7 rounded-2xl"
         >
-          <ButtonText className="text-5xl">Voltar</ButtonText>
+          <ButtonText className="text-2xl">Voltar</ButtonText>
         </Button>
       </Center>
     </Box>
