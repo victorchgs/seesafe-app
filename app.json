@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "seesafe",
-    "slug": "seesafe",
+    "name": "seesafe-app",
+    "slug": "seesafe-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
