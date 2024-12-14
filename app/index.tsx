@@ -1,11 +1,34 @@
 import { Box } from "@/components/ui/box";
 import { Button, ButtonGroup, ButtonText } from "@/components/ui/button";
 import { Center } from "@/components/ui/center";
+import useDeviceStore from "@/stores/device";
 import { router } from "expo-router";
 
 export default function Index() {
+  const { deviceId, setDeviceId } = useDeviceStore();
+
   const handleLowVisionFlux = () => {
-    router.push("/imageCapture");
+    fetch("http://192.168.1.10:3000/proxy/deviceAuth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ deviceId }),
+    })
+      .then((response) => response.json())
+      .then((data) => { //TODO: Mudar esse if?
+        if (data.data.deviceId) {
+          setDeviceId(data.data.deviceId);
+        }
+
+        router.push("/imageCapture");
+      })
+      .catch((error) => {
+        console.error(
+          "Erro ao fazer a requisição para o servidor proxy:",
+          error
+        );
+      });
   };
 
   return (
