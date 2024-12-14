@@ -8,7 +8,7 @@ export default function Index() {
   const { deviceId, setDeviceId } = useDeviceStore();
 
   const handleLowVisionFlux = () => {
-    fetch("http://192.168.1.10:3000/proxy/deviceAuth", {
+    fetch("http://192.168.1.23:3000/proxy/deviceAuth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -16,7 +16,7 @@ export default function Index() {
       body: JSON.stringify({ deviceId }),
     })
       .then((response) => response.json())
-      .then((data) => { //TODO: Mudar esse if?
+      .then((data) => {
         if (data.data.deviceId) {
           setDeviceId(data.data.deviceId);
         }
@@ -29,7 +29,7 @@ export default function Index() {
           error
         );
       });
-  };
+  }; //TODO: Estudar a estrutura da requisição (try, then, catch)
 
   return (
     <Box className="h-full bg-white dark:bg-slate-900">
