@@ -8,7 +8,7 @@ export default function Index() {
   const { deviceId, setDeviceId } = useDeviceStore();
 
   const handleLowVisionFlux = () => {
-    fetch("http://192.168.1.23:3000/proxy/deviceAuth", {
+    fetch("http://192.168.1.3:3000/proxy/deviceAuth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ export default function Index() {
           setDeviceId(data.data.deviceId);
         }
 
-        router.push("/imageCapture");
+        router.push("/sensorsDataCapture");
       })
       .catch((error) => {
         console.error(
