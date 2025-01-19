@@ -4,7 +4,8 @@ import android.content.Context
 import com.anonymous.seesafespecs.NativeBooleanTestSpec
 import com.facebook.react.bridge.ReactApplicationContext
 
-class NativeBooleanTestModule(reactContext: ReactApplicationContext) : NativeBooleanTestSpec(reactContext) {
+class NativeBooleanTestModule(reactContext: ReactApplicationContext) :
+  NativeBooleanTestSpec(reactContext) {
 
   override fun getName() = NAME
 

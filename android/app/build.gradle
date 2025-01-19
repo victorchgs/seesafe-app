@@ -120,6 +120,14 @@ android {
         jniLibs {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)
         }
+        exclude("META-INF/legal/LICENSE")
+        exclude("META-INF/legal/NOTICE.md")
+        exclude("META-INF/legal/3rd-party/cc0-legalcode.html")
+        exclude("META-INF/legal/3rd-party/BSD-3-Clause-LICENSE.txt")
+        exclude("META-INF/legal/3rd-party/APACHE-LICENSE-2.0.txt")
+        exclude("META-INF/legal/3rd-party/MIT-license.html")
+        exclude("META-INF/legal/3rd-party/CDDL+GPL-1.1.txt")
+        exclude("META-INF/")
     }
     androidResources {
         ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
@@ -149,6 +157,7 @@ android {
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+    implementation 'org.eclipse.californium:californium-core:3.13.0'
 
     def isGifEnabled = (findProperty('expo.gif.enabled') ?: "") == "true";
     def isWebpEnabled = (findProperty('expo.webp.enabled') ?: "") == "true";
