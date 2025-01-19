@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",
+    "dev": "npx expo run:android",
     "reset-project": "node ./scripts/reset-project.js",
     "android": "DARK_MODE=media expo start --android",
     "ios": "DARK_MODE=media expo start --ios",
@@ -13,6 +14,14 @@
   },
   "jest": {
     "preset": "jest-expo"
+  },
+  "codegenConfig": {
+    "name": "SeeSafeSpecs",
+    "type": "modules",
+    "jsSrcsDir": "specs",
+    "android": {
+      "javaPackageName": "com.anonymous.seesafespecs"
+    }
   },
   "dependencies": {
     "@expo/html-elements": "^0.11.0",
