@@ -9,30 +9,30 @@ export default function Index() {
   const { deviceId, setDeviceId } = useDeviceStore();
 
   const handleLowVisionFlux = () => {
-    // fetch("http://192.168.1.5:3000/proxy/deviceAuth", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({ deviceId }),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.data.deviceId) {
-    //       setDeviceId(data.data.deviceId);
-    //     }
-    //     router.push("/sensorsDataCapture");
-    //   })
-    //   .catch((error) => {
-    //     console.error(
-    //       "Erro ao fazer a requisição para o servidor proxy:",
-    //       error
-    //     );
-    //   });
+    fetch("http://192.168.0.194:3000/proxy/deviceAuth", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ deviceId }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.data.deviceId) {
+          setDeviceId(data.data.deviceId);
+        }
+        router.push("/sensorsDataCapture");
+      })
+      .catch((error) => {
+        console.error(
+          "Erro ao fazer a requisição para o servidor proxy:",
+          error
+        );
+      });
 
-    const teste = NativeBooleanTest?.getValue();
+    // const teste = NativeBooleanTest?.getValue();
 
-    console.log("Retorno:", teste);
+    // console.log("Retorno:", teste);
   }; //TODO: Estudar a estrutura da requisição (try, then, catch)
 
   return (

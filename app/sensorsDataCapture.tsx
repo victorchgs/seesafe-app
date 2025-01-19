@@ -74,7 +74,7 @@ export default function SensorsDataCapture() {
 
     try {
       const response = await fetch(
-        "http://192.168.1.3:3000/proxy/sensorsDataCapture",
+        "http://192.168.0.194:3000/proxy/sensorsDataCapture",
         {
           method: "POST",
           headers: {
